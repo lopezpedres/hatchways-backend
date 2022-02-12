@@ -30,22 +30,22 @@ const index = async (req, res) => {
 
     //Here I handle the tag value or values
 
-    const tagList = tags.split(",")
+    // const tagList = tags.split(",")
 
-    const AllPosts=[]
+    // const AllPosts=[]
 
-    tagList.map(tag=>{ 
+    // tagList.map(tag=>{ 
 
-        const [{ posts }] = fetcher(tag)
-        return [...AllPosts,posts]
-        //The following post might have an answer
-        //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+    //     const [{ posts }] = fetcher(tag)
+    //     return [...AllPosts,posts]
+    //     //The following post might have an answer
+    //     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
         
 
 
 
-    })
-    console.log(AllPosts.length)
+    // })
+    // console.log(AllPosts.length)
 
 
 
