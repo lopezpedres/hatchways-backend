@@ -3,7 +3,7 @@ import fetcher from "../../utils/fetcher"
 
 const index = async (req, res) => {
 
-    const {
+    let {
         query:
         { tags,
             sortBy,
@@ -11,49 +11,68 @@ const index = async (req, res) => {
         }
     } = req
 
-    console.log(tags)
-    console.log(sortBy)
-    console.log(direction)
+    //Sample output
+    // const sample = {
+    //     author: "Rylee Paul",
+    //     authorId: 9,
+    //     id: 1,
+    //     likes: 960,
+    //     popularity: 0.13,
+    //     reads: 50361,
+    //     tags: [
+    //     "tech",
+    //     "health"
+    //     ]
+    //     }
 
     //Here I handle errors
-    if (!tags){
-        res.status(400).json({error:"Tags parameter is required"})
-        return 
+    if (!tags) {
+        res.status(400).json({ error: "Tags parameter is required" })
+        return
     }
 
-    if (sortBy!=='id'|'reads'|'likes'|'popularity'
-    |direction!=="asc"|"desc"
-    ){
-        res.status(400).json({error:"sortBy parameter is invalidad"})
-        return 
+    if (!sortBy){
+        sortBy="id"
+    }
+
+    if (sortBy !== 'id' | 'reads' | 'likes' | 'popularity'|""
+    ) {
+        res.status(400).json({ error: "sortBy parameter is invalidad" })
+        return
+    }
+
+    if (!direction){
+        direction="asc"
+    }
+
+    
+    if (direction !== "asc" | "desc"
+    ) {
+        res.status(400).json({ error: "direction parameter is invalid" })
+        return
     }
 
     //Here I handle the tag value or values
 
-    // const tagList = tags.split(",")
+    const parsedTags = tags.split(",");
+    const promises = parsedTags.map((tag) =>  fetcher(tag));
+    const results = await Promise.all(promises);
 
-    // const AllPosts=[]
-
-    // tagList.map(tag=>{ 
-
-    //     const [{ posts }] = fetcher(tag)
-    //     return [...AllPosts,posts]
-    //     //The following post might have an answer
-    //     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
-        
-
-
-
-    // })
-    // console.log(AllPosts.length)
+    const posts = results
+        .reduce((acc, curr) => {
+            const { posts } = curr;
+            return [...acc, ...posts];
+        }, [])
+        // unique
+        .filter(
+            (post, index, self) => index === self.findIndex((t) => t.id === post.id)
+        );
 
 
 
 
-    //Here I deconstruct the post array after fetching it
-    const { posts } = await fetcher(tags)
     //Here I sort the values acording to the sortBy variable
-    if (direction==="asc") {
+    if (direction === "asc") {
         const sortedPosts = posts.sort((a, b) => a[sortBy] > b[sortBy] ? 1 : -1)
         return res.status(200).json(sortedPosts)
     } else {
