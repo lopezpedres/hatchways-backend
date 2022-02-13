@@ -23,7 +23,7 @@ Go to [http://localhost:3000/api/posts](http://localhost:3000/api/post) and use 
 
     Example: http://localhost:3000/api/posts?tags=tech,history&sortBy=likes&direction=des
 
-##Testing
+## Testing
 
 Run the command
 
@@ -34,14 +34,13 @@ yarn cypress open
 
 ## Comments
 
-Thank you for reviewing my application, I took me a little bit of time because I had to go to work plus I have been very busy. In average I spent 2.5 hours 3 days each day to complete these assigment. I only created 1 unit test for 3 main functions that tests the API response, its a topic that I am still learning.
+Thank you for reviewing my application, I took me a little bit of time because I had to go to work plus I have been very busy. In average I spent 2.5 hours per day for 2 days to complete this assigment. I only created 1 unit test for 3 main functions that tests the endpoints, its a topic that I am still learning.
 
-I am very excited for your feedback
+I am very excited to receive your feedback
 
 Miguel
 
 
 
-Had to install all these dep for cypress
-https://gist.github.com/winuxue/cfef08e2f5fe9dfc16a1d67a4ad38a01?permalink_comment_id=4056573#gistcomment-4056573
+Github Repo: [https://github.com/lopezpedres/hatchways-backend](https://github.com/lopezpedres/hatchways-backend)
 
