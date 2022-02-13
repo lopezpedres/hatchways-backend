@@ -1,11 +1,11 @@
 # Getting Started
 
-Welcome
+Welcome before start make sure that you have node v17.3.0 installed
 
 First, install the dependencies:
 
 ```bash 
-yarn 
+yarn install
 ```
 
 Second, run the development server:
@@ -35,6 +35,8 @@ yarn cypress open
 ## Comments
 
 Thank you for reviewing my application, I took me a little bit of time because I had to go to work plus I have been very busy. In average I spent 2.5 hours per day for 2 days to complete this assigment. I only created 1 unit test for 3 main functions that tests the endpoints, its a topic that I am still learning.
+Feel free to contact me if there are any questions
+lopezpedres@gmail.com 
 
 I am very excited to receive your feedback
 
