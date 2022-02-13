@@ -21,7 +21,7 @@ Go to [http://localhost:3000/api/posts](http://localhost:3000/api/post) and use 
     sortBy (Optinal)       string    id
     direction (Optional)   string    asc
 
-    Example: http://localhost:3000/api/posts?tags=tech,history&sortBy=likes&direction=des
+Example: http://localhost:3000/api/posts?tags=tech,history&sortBy=likes&direction=des
 
 ## Testing
 
