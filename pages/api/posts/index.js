@@ -1,4 +1,4 @@
-import fetcher from "../../utils/fetcher"
+import fetcher from "../../../utils/fetcher"
 
 
 const index = async (req, res) => {
@@ -38,7 +38,6 @@ const index = async (req, res) => {
     if (sortBy===undefined){
         sortBy="id"
     }
-    console.log(sortBy)
     if (!fields.includes(sortBy)) {
         res.status(400).json({ error: "sortBy parameter is invalidad" })
         return

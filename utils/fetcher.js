@@ -1,5 +1,5 @@
 import fetch from "isomorphic-fetch"
-import url from "../../app.config"
+import url from "../app.config"
 
 import cache from "memory-cache";
 
